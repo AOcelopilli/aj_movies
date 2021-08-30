@@ -1,0 +1,16 @@
+.movie-container {
+  display: grid;
+  place-items: center;
+  max-width: 100%;
+}
+
+.movie-details {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.movie-details p {
+  width: 100%;
+}

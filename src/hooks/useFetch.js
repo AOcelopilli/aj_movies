@@ -15,7 +15,7 @@ export const useFetch = (topic) => {
       setLoading(true);
 
       try {
-        let url = `https://api.themoviedb.org/3/movie/${topic}?api_key=${KEY}&language=es-MX&page=1`,
+        let url = `https://api.themoviedb.org/3/movie/${topic}?api_key=${KEY}&language=en-US`,
           res = await fetch(url, { signal });
 
         if (!res.ok) {
