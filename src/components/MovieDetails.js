@@ -24,9 +24,9 @@ const MovieDetails = ({ topic }) => {
       {loading && <Loader />}
 
       {!loading && (
-        <div className="movie-container">
+        <div className="movie-details">
           <h2>{title}</h2>
-          <div className="movie-details">
+          <div className="movie-details-container">
             <MovieImg path={poster_path} />
             <div className="movie-description">
               <p>{overview}</p>

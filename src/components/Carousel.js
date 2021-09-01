@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import "./Carousel.css";
 import Loader from "./Loader";
@@ -8,11 +8,14 @@ import MovieImg from "./MovieImg";
 const Carousel = ({ topic, title }) => {
   const [details, setDetails] = useState(false);
   const [idMovie, setIdMovie] = useState(null);
+
+  const refCarousel = useRef(null);
+
   let { data, loading, error } = useFetch(topic);
 
   if (!data) return null;
 
-  const handleClick = (e) => {
+  const handleMovieClick = (e) => {
     let id = e.target.getAttribute("data-id");
 
     if (id !== idMovie) {
@@ -24,26 +27,35 @@ const Carousel = ({ topic, title }) => {
     }
   };
 
+  //TODO: handleClick to make scroll in carousel-container
+
   return (
     <div className="carousel">
-      <h2>{title}</h2>
+      <div className="carousel-header">
+        <h2>{title}</h2>
+      </div>
       {loading && <Loader />}
       {error && <h3>{error}</h3>}
-      <div className="carousel-movies">
-        {data.results.map((e) => {
-          return (
-            <div
-              className="movie"
-              key={e.id}
-              onClick={handleClick}
-              data-id={e.id}
-            >
-              <h3>{e.title}</h3>
-              <MovieImg path={e.backdrop_path} />
-            </div>
-          );
-        })}
-      </div>
+      {!loading && (
+        <div className="carousel-container">
+          <button className="carousel-left-btn"> &lt; </button>
+          <div className="carousel-movies" ref={refCarousel}>
+            {data.results.map((e) => {
+              return (
+                <div
+                  className="movie-container"
+                  key={e.id}
+                  onClick={handleMovieClick}
+                  data-id={e.id}
+                >
+                  <MovieImg path={e.backdrop_path} />
+                </div>
+              );
+            })}
+          </div>
+          <button className="carousel-right-btn"> &gt; </button>
+        </div>
+      )}
       {details && <MovieDetails topic={idMovie} />}
     </div>
   );
