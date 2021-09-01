@@ -28,6 +28,13 @@ const Carousel = ({ topic, title }) => {
   };
 
   //TODO: handleClick to make scroll in carousel-container
+  const handleLeftClick = () => {
+    refCarousel.current.scrollLeft -= refCarousel.current.offsetWidth;
+  };
+
+  const handleRightClick = () => {
+    refCarousel.current.scrollLeft += refCarousel.current.offsetWidth;
+  };
 
   return (
     <div className="carousel">
@@ -38,7 +45,10 @@ const Carousel = ({ topic, title }) => {
       {error && <h3>{error}</h3>}
       {!loading && (
         <div className="carousel-container">
-          <button className="carousel-left-btn"> &lt; </button>
+          <button className="carousel-left-btn" onClick={handleLeftClick}>
+            {" "}
+            &lt;{" "}
+          </button>
           <div className="carousel-movies" ref={refCarousel}>
             {data.results.map((e) => {
               return (
@@ -53,7 +63,10 @@ const Carousel = ({ topic, title }) => {
               );
             })}
           </div>
-          <button className="carousel-right-btn"> &gt; </button>
+          <button className="carousel-right-btn" onClick={handleRightClick}>
+            {" "}
+            &gt;{" "}
+          </button>
         </div>
       )}
       {details && <MovieDetails topic={idMovie} />}

@@ -10,7 +10,6 @@
 .carousel-container {
   margin: 0 auto;
   width: 90%;
-  overflow-x: scroll;
   position: relative;
 }
 
@@ -19,9 +18,10 @@
   border: none;
   color: white;
   cursor: pointer;
-  height: 100%;
-  top: 0;
-  transition: background-color 0.3s ease-out;
+  height: calc(100% - 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease-out, width 0.3s ease-in-out;
   position: absolute;
   width: 1rem;
   z-index: 10;
@@ -29,6 +29,7 @@
 
 .carousel-container button:hover {
   background-color: rgba(0, 0, 0, 0.9);
+  width: 2rem;
 }
 
 .carousel-container .carousel-left-btn {
@@ -40,6 +41,8 @@
 }
 
 .carousel-movies {
+  overflow: hidden;
+  scroll-behavior: smooth;
   display: flex;
   padding: 1rem 0;
 }
