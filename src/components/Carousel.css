@@ -17,8 +17,8 @@
 
 .movie {
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0.5rem;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
   color: #000;
   cursor: pointer;
   display: flex;
@@ -28,6 +28,24 @@
   text-align: center;
   transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
   margin: 0 0.5rem;
+  position: relative;
+}
+
+.movie > * {
+  z-index: 10;
+}
+
+.movie::before {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.5rem;
+  filter: blur(1px);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
 }
 
 .movie:hover {

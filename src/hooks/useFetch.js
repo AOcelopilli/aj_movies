@@ -29,7 +29,7 @@ export const useFetch = (topic) => {
         let json = await res.json();
 
         if (!signal.aborted) {
-          setData(json.results);
+          setData(json);
           setError(null);
         }
       } catch (error) {

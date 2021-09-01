@@ -5,7 +5,7 @@ import Loader from "./Loader";
 import MovieDetails from "./MovieDetails";
 import MovieImg from "./MovieImg";
 
-const Carousel = ({ topic }) => {
+const Carousel = ({ topic, title }) => {
   const [details, setDetails] = useState(false);
   const [idMovie, setIdMovie] = useState(null);
   let { data, loading, error } = useFetch(topic);
@@ -15,17 +15,22 @@ const Carousel = ({ topic }) => {
   const handleClick = (e) => {
     let id = e.target.getAttribute("data-id");
 
-    setIdMovie(id);
-    setDetails(true);
+    if (id !== idMovie) {
+      setIdMovie(id);
+      setDetails(true);
+    } else {
+      setIdMovie(null);
+      setDetails(false);
+    }
   };
 
   return (
     <div className="carousel">
-      <h2>En streaming ahora</h2>
+      <h2>{title}</h2>
       {loading && <Loader />}
       {error && <h3>{error}</h3>}
       <div className="carousel-movies">
-        {data.map((e) => {
+        {data.results.map((e) => {
           return (
             <div
               className="movie"
@@ -39,7 +44,7 @@ const Carousel = ({ topic }) => {
           );
         })}
       </div>
-      {details && <MovieDetails id={idMovie} />}
+      {details && <MovieDetails topic={idMovie} />}
     </div>
   );
 };
