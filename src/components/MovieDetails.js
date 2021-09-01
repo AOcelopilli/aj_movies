@@ -1,40 +1,52 @@
+import { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import Loader from "./Loader";
 import "./MovieDetails.css";
 import MovieImg from "./MovieImg";
 
-const MovieDetails = ({ topic }) => {
+const MovieDetails = ({ isShow, topic, handleMovieClick }) => {
+  const [show, setShow] = useState(false);
   let { data, loading, error } = useFetch(topic);
 
   if (!data) return null;
+  if (!loading && isShow) {
+    setInterval(() => {
+      setShow(true);
+    }, 10);
+  }
 
-  let {
-    overview,
-    title,
-    original_title,
-    poster_path,
-    release_date,
-    vote_average,
-    popularity,
-    budget,
-  } = data;
+  let { overview, title, original_title, poster_path, genres, release_date } =
+    data;
 
   return (
     <>
       {loading && <Loader />}
 
       {!loading && (
-        <div className="movie-details">
-          <h2>{title}</h2>
+        <div className={`movie-details ${show && "active"}`}>
+          <h3>{title}</h3>
+          <button className="close-details-btn" onClick={handleMovieClick}>
+            X
+          </button>
           <div className="movie-details-container">
-            <MovieImg path={poster_path} />
+            <div>
+              <MovieImg path={poster_path} />
+              <p className="date">
+                Fecha de lanzamiento <br />{" "}
+                {release_date.split("-").reverse().join(",")}
+              </p>
+            </div>
             <div className="movie-description">
+              <h4>Resumen</h4>
               <p>{overview}</p>
-              <p>Fecha de lanzamiento {release_date}</p>
-              <p>Puntuación de TheMovieDb {vote_average}</p>
-              <p>Popularidad {popularity}</p>
-              <p>Presupuesto utilizado ${budget} dolares</p>
-              <p>Titulo original: {original_title}</p>
+              <h4>Generos: </h4>
+              <p>
+                {genres.map((el) => (
+                  <span key={el.id}>{el.name}, </span>
+                ))}
+              </p>
+              <h4>Titulo original</h4>
+              <p> {original_title}</p>
             </div>
           </div>
         </div>

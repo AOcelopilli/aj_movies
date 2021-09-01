@@ -6,7 +6,7 @@ import MovieDetails from "./MovieDetails";
 import MovieImg from "./MovieImg";
 
 const Carousel = ({ topic, title }) => {
-  const [details, setDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
   const [idMovie, setIdMovie] = useState(null);
 
   const refCarousel = useRef(null);
@@ -20,14 +20,13 @@ const Carousel = ({ topic, title }) => {
 
     if (id !== idMovie) {
       setIdMovie(id);
-      setDetails(true);
+      setShowDetails(true);
     } else {
       setIdMovie(null);
-      setDetails(false);
+      setShowDetails(false);
     }
   };
 
-  //TODO: handleClick to make scroll in carousel-container
   const handleLeftClick = () => {
     refCarousel.current.scrollLeft -= refCarousel.current.offsetWidth;
   };
@@ -58,6 +57,7 @@ const Carousel = ({ topic, title }) => {
                   onClick={handleMovieClick}
                   data-id={e.id}
                 >
+                  <h3>{e.title}</h3>
                   <MovieImg path={e.backdrop_path} />
                 </div>
               );
@@ -69,7 +69,13 @@ const Carousel = ({ topic, title }) => {
           </button>
         </div>
       )}
-      {details && <MovieDetails topic={idMovie} />}
+      {showDetails && (
+        <MovieDetails
+          isShow={showDetails}
+          topic={idMovie}
+          handleMovieClick={handleMovieClick}
+        />
+      )}
     </div>
   );
 };
