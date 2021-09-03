@@ -4,11 +4,12 @@ import Loader from "./Loader";
 import "./MovieDetails.css";
 import MovieImg from "./MovieImg";
 
-const MovieDetails = ({ isShow, topic, handleMovieClick }) => {
+const MovieDetails = ({ type, isShow, topic, handleMovieClick }) => {
   const [show, setShow] = useState(false);
-  let { data, loading, error } = useFetch(topic);
 
-  if (!data) return null;
+  let { data, loading, error } = useFetch(type, topic);
+  if (!data || !error) return null;
+
   if (!loading && isShow) {
     setInterval(() => {
       setShow(true);

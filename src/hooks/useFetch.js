@@ -1,28 +1,28 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (topic) => {
+export const useFetch = (type, topic) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const KEY = "6d2950b0059337fed4d25779fc402e79";
+  const BASE_URL = "https://api.themoviedb.org/3/",
+    KEY = "6d2950b0059337fed4d25779fc402e79",
+    LANG = "language=es-MX";
 
   useEffect(() => {
     let controller = new AbortController(),
       signal = controller.signal;
-
     const fetchData = async (e) => {
       setLoading(true);
 
       try {
-        let url = `https://api.themoviedb.org/3/movie/${topic}?api_key=${KEY}&language=en-US`,
+        let url = `${BASE_URL}${type}/${topic}?api_key=${KEY}&${LANG}`,
           res = await fetch(url, { signal });
 
         if (!res.ok) {
           let err = new Error("Ocurrio un error");
           err.status = res.status || "00";
           err.statusText = res.statusText || "Error en petición fetch";
-
           throw err;
         }
 
@@ -49,7 +49,9 @@ export const useFetch = (topic) => {
     fetchData();
 
     return () => controller.abort();
-  }, [topic]);
+  }, [topic, type]);
 
   return { data, loading, error };
+
+  // return { data, loading, error };
 };

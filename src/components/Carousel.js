@@ -5,13 +5,12 @@ import Loader from "./Loader";
 import MovieDetails from "./MovieDetails";
 import MovieImg from "./MovieImg";
 
-const Carousel = ({ topic, title }) => {
+const Carousel = ({ type, topic, title }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [idMovie, setIdMovie] = useState(null);
+  const refCarousel = useRef();
 
-  const refCarousel = useRef(null);
-
-  let { data, loading, error } = useFetch(topic);
+  let { data, loading, error } = useFetch(type, topic);
 
   if (!data) return null;
 
@@ -71,6 +70,7 @@ const Carousel = ({ topic, title }) => {
       )}
       {showDetails && (
         <MovieDetails
+          type={type}
           isShow={showDetails}
           topic={idMovie}
           handleMovieClick={handleMovieClick}
