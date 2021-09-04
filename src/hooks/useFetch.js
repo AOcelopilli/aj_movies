@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (type, idMovie) => {
+export const useFetch = (type, id) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -10,27 +10,64 @@ export const useFetch = (type, idMovie) => {
     LANG = "language=es-MX";
 
   useEffect(() => {
+    if (!id) return null;
+
     let controller = new AbortController(),
       signal = controller.signal;
 
     const fetchData = async (e) => {
       setLoading(true);
       try {
-        let url = `${BASE_URL}${type}/${idMovie}?api_key=${KEY}&${LANG}`,
-          res = await fetch(url, { signal });
+        let urlId = `${BASE_URL}${type}/${id}?api_key=${KEY}&${LANG}`,
+          urlCredits = `${BASE_URL}${type}/${id}/credits?api_key=${KEY}&${LANG}`,
+          urlReviews = `${BASE_URL}${type}/${id}/reviews?api_key=${KEY}&${LANG}`,
+          urlSimilar = `${BASE_URL}${type}/${id}/similar?api_key=${KEY}&${LANG}`,
+          resDetails = await fetch(urlId, { signal }),
+          resCredits = await fetch(urlCredits, { signal }),
+          resReviews = await fetch(urlReviews, { signal }),
+          resSimilar = await fetch(urlSimilar, { signal });
 
-        if (!res.ok) {
-          let err = new Error("Ocurrio un error");
-          err.status = res.status || "00";
-          err.statusText = res.statusText || "Error en petición fetch";
-          throw err;
+        if (!resDetails.ok) {
+          let detailsErr = new Error("Error al solicitar detalles");
+          detailsErr.status = resDetails.status || "00";
+          detailsErr.statusText =
+            resDetails.statusText || "Error en petición fetch";
+          throw detailsErr;
         }
 
-        let json = await res.json();
+        if (!resCredits.ok) {
+          let creditsErr = new Error("Error al solicitar similares");
+          creditsErr.status = resCredits.status || "00";
+          creditsErr.statusText =
+            resCredits.statusText || "Error en petición fetch";
+          throw creditsErr;
+        }
+
+        if (!resReviews.ok) {
+          let reviewsErr = new Error("Error al solicitar similares");
+          reviewsErr.status = resReviews.status || "00";
+          reviewsErr.statusText =
+            resReviews.statusText || "Error en petición fetch";
+          throw reviewsErr;
+        }
+
+        if (!resSimilar.ok) {
+          let similarErr = new Error("Error al solicitar similares");
+          similarErr.status = resSimilar.status || "00";
+          similarErr.statusText =
+            resSimilar.statusText || "Error en petición fetch";
+          throw similarErr;
+        }
+
+        let details = await resDetails.json(),
+          credits = await resCredits.json(),
+          reviews = await resReviews.json(),
+          similar = await resSimilar.json();
 
         if (!signal.aborted) {
-          setData(json);
+          setData({ details, credits, reviews, similar });
           setError(null);
+          console.log("datos seteados");
         }
       } catch (error) {
         if (!signal.aborted) {
@@ -42,16 +79,13 @@ export const useFetch = (type, idMovie) => {
           setLoading(false);
         }
       }
-
       return () => controller.abort();
     };
 
     fetchData();
 
     return () => controller.abort();
-  }, [idMovie, type]);
+  }, [id, type]);
 
   return { data, loading, error };
-
-  // return { data, loading, error };
 };

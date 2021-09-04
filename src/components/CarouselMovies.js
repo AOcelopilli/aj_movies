@@ -36,7 +36,7 @@ const CarouselMovies = ({ type, category, trending = false, title }) => {
   };
 
   return (
-    <>
+    <div>
       <div>
         <h2>{title}</h2>
       </div>
@@ -66,12 +66,14 @@ const CarouselMovies = ({ type, category, trending = false, title }) => {
           &gt;{" "}
         </button>
       </div>
-      <MovieDetails
-        type={type}
-        id={idMovie}
-        handleOpenClose={handleOpenClose}
-      />
-    </>
+      {idMovie && (
+        <MovieDetails
+          type={type}
+          id={idMovie}
+          handleOpenClose={handleOpenClose}
+        />
+      )}
+    </div>
   );
 };
 
