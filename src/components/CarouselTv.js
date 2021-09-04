@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { helpFetch } from "../helpers/helpFetch";
 import "./Carousel.css";
-import MovieDetails from "./MovieDetails";
 import MovieImg from "./MovieImg";
 
-const CarouselMovies = ({ type, category, trending = false, title }) => {
+const CarouselTv = ({ type, category, trending = false, title }) => {
   const [data, setData] = useState(null);
   const [idMovie, setIdMovie] = useState(null);
   const refCarousel = useRef();
@@ -17,7 +16,9 @@ const CarouselMovies = ({ type, category, trending = false, title }) => {
 
   if (!data) return null;
 
-  const handleOpenClose = (e) => {
+  //console.log(data);
+
+  const handleMovieClick = (e) => {
     let id = e.target.getAttribute("data-id");
 
     if (id !== idMovie) {
@@ -52,10 +53,10 @@ const CarouselMovies = ({ type, category, trending = false, title }) => {
               <div
                 className="movie-container"
                 key={e.id}
-                onClick={handleOpenClose}
+                onClick={handleMovieClick}
                 data-id={e.id}
               >
-                <h3>{e.title}</h3>
+                <h3>{e.name}</h3>
                 <MovieImg path={e.backdrop_path} />
               </div>
             );
@@ -66,13 +67,8 @@ const CarouselMovies = ({ type, category, trending = false, title }) => {
           &gt;{" "}
         </button>
       </div>
-      <MovieDetails
-        type={type}
-        id={idMovie}
-        handleOpenClose={handleOpenClose}
-      />
     </>
   );
 };
 
-export default CarouselMovies;
+export default CarouselTv;

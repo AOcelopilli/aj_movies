@@ -3,8 +3,10 @@ export const helpFetch = () => {
     KEY = "6d2950b0059337fed4d25779fc402e79",
     LANG = "language=es-MX";
 
-  const fetchCategory = async (type, category) => {
-    let url = `${BASE_URL}${type}/${category}?api_key=${KEY}&${LANG}`;
+  const fetchCategory = async (type, category, trending) => {
+    let url = `${BASE_URL}${
+      trending ? "trending/" : ""
+    }${type}/${category}?api_key=${KEY}&${LANG}`;
 
     try {
       let res = await fetch(url);
@@ -24,7 +26,8 @@ export const helpFetch = () => {
     }
   };
 
-  const getCategory = (type, category) => fetchCategory(type, category);
+  const getCategory = (type, category, trending) =>
+    fetchCategory(type, category, trending);
 
   return { getCategory };
 };

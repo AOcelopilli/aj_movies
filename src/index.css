@@ -27,3 +27,14 @@ h3 {
 p {
   padding: 1rem 0;
 }
+
+a {
+  margin: 0 1rem;
+  padding: 0.5rem;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: rgb(201, 15, 15);
+}

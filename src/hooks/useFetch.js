@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (type, topic) => {
+export const useFetch = (type, idMovie) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -12,11 +12,11 @@ export const useFetch = (type, topic) => {
   useEffect(() => {
     let controller = new AbortController(),
       signal = controller.signal;
+
     const fetchData = async (e) => {
       setLoading(true);
-
       try {
-        let url = `${BASE_URL}${type}/${topic}?api_key=${KEY}&${LANG}`,
+        let url = `${BASE_URL}${type}/${idMovie}?api_key=${KEY}&${LANG}`,
           res = await fetch(url, { signal });
 
         if (!res.ok) {
@@ -49,7 +49,7 @@ export const useFetch = (type, topic) => {
     fetchData();
 
     return () => controller.abort();
-  }, [topic, type]);
+  }, [idMovie, type]);
 
   return { data, loading, error };
 

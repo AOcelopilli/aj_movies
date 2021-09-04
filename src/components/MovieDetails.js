@@ -1,20 +1,11 @@
-import { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import Loader from "./Loader";
 import "./MovieDetails.css";
 import MovieImg from "./MovieImg";
 
-const MovieDetails = ({ type, isShow, topic, handleMovieClick }) => {
-  const [show, setShow] = useState(false);
-
-  let { data, loading, error } = useFetch(type, topic);
+const MovieDetails = ({ type, idMovie, handleOpenClose }) => {
+  let { data, loading, error } = useFetch(type, idMovie);
   if (!data || !error) return null;
-
-  if (!loading && isShow) {
-    setInterval(() => {
-      setShow(true);
-    }, 10);
-  }
 
   let { overview, title, original_title, poster_path, genres, release_date } =
     data;
@@ -24,9 +15,9 @@ const MovieDetails = ({ type, isShow, topic, handleMovieClick }) => {
       {loading && <Loader />}
 
       {!loading && (
-        <div className={`movie-details ${show && "active"}`}>
+        <div className={`movie-details`}>
           <h3>{title}</h3>
-          <button className="close-details-btn" onClick={handleMovieClick}>
+          <button className="close-details-btn" onClick={handleOpenClose}>
             X
           </button>
           <div className="movie-details-container">
