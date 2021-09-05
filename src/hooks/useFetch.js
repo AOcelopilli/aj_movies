@@ -67,7 +67,6 @@ export const useFetch = (type, id) => {
         if (!signal.aborted) {
           setData({ details, credits, reviews, similar });
           setError(null);
-          console.log("datos seteados");
         }
       } catch (error) {
         if (!signal.aborted) {
