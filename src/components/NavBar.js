@@ -26,7 +26,7 @@ const NavBar = () => {
         </nav>
         <Switch>
           <Route exact path="/" component={Inicio} />
-          <Route exact path="/movies" component={Peliculas} />
+          <Route exact path="/peliculas" component={Peliculas} />
           <Route exact path="/tv" component={Tv} />
         </Switch>
       </Router>
