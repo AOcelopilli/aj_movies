@@ -1,11 +1,11 @@
+import "./MovieDetails.css";
+import MovieSimilar from "./MovieSimilar";
 import { useFetch } from "../hooks/useFetch";
 import Loader from "./Loader";
-import "./MovieDetails.css";
-import MovieInfo from "./MovieInfo";
-import MoviePeople from "./MoviePeople";
-import MovieSimilar from "./MovieSimilar";
+import TvInfo from "./TvInfo";
+import TvPeople from "./TvPeople";
 
-const MovieDetails = ({ type, id, handleOpenClose }) => {
+const TvDetails = ({ type, id, handleOpenClose }) => {
   let { data, loading, error } = useFetch(type, id);
 
   if (!data) return null;
@@ -17,13 +17,12 @@ const MovieDetails = ({ type, id, handleOpenClose }) => {
       {loading && <Loader />}
 
       <div className="movie-details">
-        <h2>{details.title}</h2>
+        <h2>{details.name}</h2>
         <button className="close-details-btn" onClick={handleOpenClose}>
           X
         </button>
-
-        <MovieInfo details={details} />
-        <MoviePeople credits={credits} />
+        <TvInfo details={details} />
+        <TvPeople credits={credits} />
         <MovieSimilar similar={similar} handleOpenClose={handleOpenClose} />
       </div>
       {error && <h2>Ocurrio un error</h2>}
@@ -31,4 +30,4 @@ const MovieDetails = ({ type, id, handleOpenClose }) => {
   );
 };
 
-export default MovieDetails;
+export default TvDetails;

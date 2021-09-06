@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { helpFetch } from "../helpers/helpFetch";
 import "./Carousel.css";
 import MovieImg from "./MovieImg";
+import TvDetails from "./TvDetails";
 
 const CarouselTv = ({ type, category, trending = false, title }) => {
   const [data, setData] = useState(null);
-  const [idMovie, setIdMovie] = useState(null);
+  const [idTv, setIdTv] = useState(null);
   const refCarousel = useRef();
 
   useEffect(() => {
@@ -16,15 +17,13 @@ const CarouselTv = ({ type, category, trending = false, title }) => {
 
   if (!data) return null;
 
-  //console.log(data);
-
-  const handleMovieClick = (e) => {
+  const handleOpenClose = (e) => {
     let id = e.target.getAttribute("data-id");
 
-    if (id !== idMovie) {
-      setIdMovie(id);
+    if (idTv !== id) {
+      setIdTv(id);
     } else {
-      setIdMovie(null);
+      setIdTv(null);
     }
   };
 
@@ -53,7 +52,7 @@ const CarouselTv = ({ type, category, trending = false, title }) => {
               <div
                 className="movie-container"
                 key={e.id}
-                onClick={handleMovieClick}
+                onClick={handleOpenClose}
                 data-id={e.id}
               >
                 <h3>{e.name}</h3>
@@ -67,6 +66,10 @@ const CarouselTv = ({ type, category, trending = false, title }) => {
           &gt;{" "}
         </button>
       </div>
+
+      {idTv && (
+        <TvDetails type={type} id={idTv} handleOpenClose={handleOpenClose} />
+      )}
     </>
   );
 };

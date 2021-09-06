@@ -6,7 +6,7 @@ import MovieImg from "./MovieImg";
 
 const CarouselMovies = ({ type, category, trending = false, title }) => {
   const [data, setData] = useState(null);
-  const [idMovie, setIdMovie] = useState(null);
+  const [id, setId] = useState(null);
   const refCarousel = useRef();
 
   useEffect(() => {
@@ -18,12 +18,12 @@ const CarouselMovies = ({ type, category, trending = false, title }) => {
   if (!data) return null;
 
   const handleOpenClose = (e) => {
-    let id = e.target.getAttribute("data-id");
+    let mediaId = e.target.getAttribute("data-id");
 
-    if (id !== idMovie) {
-      setIdMovie(id);
+    if (id !== mediaId) {
+      setId(mediaId);
     } else {
-      setIdMovie(null);
+      setId(null);
     }
   };
 
@@ -66,12 +66,8 @@ const CarouselMovies = ({ type, category, trending = false, title }) => {
           &gt;{" "}
         </button>
       </div>
-      {idMovie && (
-        <MovieDetails
-          type={type}
-          id={idMovie}
-          handleOpenClose={handleOpenClose}
-        />
+      {id && (
+        <MovieDetails type={type} id={id} handleOpenClose={handleOpenClose} />
       )}
     </div>
   );

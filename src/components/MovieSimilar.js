@@ -13,7 +13,9 @@ const MovieSimilar = ({ similar, handleOpenClose }) => {
               data-id={movie.id}
               onClick={handleOpenClose}
             >
-              <h4>{movie.title || movie.original_title}</h4>
+              <h4>
+                {movie.title || movie.original_title || movie.original_name}
+              </h4>
               <MovieImg path={movie.poster_path} />
             </div>
           );
