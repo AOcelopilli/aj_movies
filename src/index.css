@@ -1,3 +1,8 @@
+:root {
+  --main-color: rgb(233, 19, 19);
+  --main-modal-color: rgb(235, 32, 32);
+}
+
 *,
 *::after,
 *::before {
@@ -12,10 +17,14 @@ html {
 }
 
 body {
-  background-color: #1f1f1f;
+  background: linear-gradient(
+    150deg,
+    rgb(83, 83, 83),
+    rgb(36, 36, 36),
+    rgb(0, 0, 0)
+  );
   color: white;
-  text-align: center;
-  padding: 2rem 0;
+  padding-bottom: 2rem;
 }
 
 h1,
@@ -26,15 +35,4 @@ h3 {
 
 p {
   padding: 1rem 0;
-}
-
-a {
-  margin: 0 1rem;
-  padding: 0.5rem;
-  color: white;
-  transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-  color: rgb(201, 15, 15);
 }

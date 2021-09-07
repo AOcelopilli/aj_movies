@@ -17,11 +17,13 @@ const TvPeople = ({ credits }) => {
       </div>
       {credits.crew.length > 0 &&
         credits.crew.map((person) => {
-          <div className="person" data-id={person.id} key={person.id}>
-            <h3>{person.job}</h3>
-            <p>Nombre: {person.original_name}</p>
-            <MovieImg path={person.profile_path} />
-          </div>;
+          return (
+            <div className="person" data-id={person.id} key={person.id}>
+              <h3>{person.job}</h3>
+              <p>Nombre: {person.original_name}</p>
+              <MovieImg path={person.profile_path} />
+            </div>
+          );
         })}
     </div>
   );
