@@ -3,7 +3,7 @@ import Loader from "./Loader";
 import "./MovieDetails.css";
 import MovieInfo from "./MovieInfo";
 import MoviePeople from "./MoviePeople";
-import MovieSimilar from "./MovieSimilar";
+import CarouselSimilar from "./CarouselSimilar";
 
 const MovieDetails = ({ type, id, handleOpenClose }) => {
   let { data, loading, error } = useFetch(type, id);
@@ -24,7 +24,7 @@ const MovieDetails = ({ type, id, handleOpenClose }) => {
 
         <MovieInfo details={details} />
         <MoviePeople credits={credits} />
-        <MovieSimilar similar={similar} handleOpenClose={handleOpenClose} />
+        <CarouselSimilar similar={similar} handleOpenClose={handleOpenClose} />
       </div>
       {error && <h2>Ocurrio un error</h2>}
     </div>

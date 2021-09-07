@@ -13,9 +13,9 @@ import "./NavBar.css";
 const NavBar = () => {
   return (
     <>
-      <header>
-        <h2>Series y Peliculas</h2>
-        <Router>
+      <Router>
+        <header>
+          <h2>Series y Peliculas</h2>
           <nav>
             <NavLink exact to="/" activeClassName="activeLink">
               Inicio
@@ -30,18 +30,14 @@ const NavBar = () => {
           <div className="search">
             <input type="text" placeholder="Buscar... PENDIENTE" />
           </div>
-        </Router>
-      </header>
-      <main>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Inicio} />
-            <Route exact path="/peliculas" component={Peliculas} />
-            <Route exact path="/tv" component={Tv} />
-            <Route path="*" component={Error404} />
-          </Switch>
-        </Router>
-      </main>
+        </header>
+        <Switch>
+          <Route exact path="/" component={Inicio} />
+          <Route exact path="/peliculas" component={Peliculas} />
+          <Route exact path="/tv" component={Tv} />
+          <Route path="*" component={Error404} />
+        </Switch>
+      </Router>
     </>
   );
 };

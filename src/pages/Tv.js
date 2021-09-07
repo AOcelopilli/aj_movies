@@ -1,8 +1,8 @@
 const Tv = () => {
   return (
-    <div>
-      <h2>Tv Shows</h2>
-    </div>
+    <main>
+      <h1>Tv Shows</h1>
+    </main>
   );
 };
 

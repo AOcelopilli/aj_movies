@@ -1,5 +1,5 @@
 import "./MovieDetails.css";
-import MovieSimilar from "./MovieSimilar";
+import CarouselSimilar from "./CarouselSimilar";
 import { useFetch } from "../hooks/useFetch";
 import Loader from "./Loader";
 import TvInfo from "./TvInfo";
@@ -23,7 +23,7 @@ const TvDetails = ({ type, id, handleOpenClose }) => {
         </button>
         <TvInfo details={details} />
         <TvPeople credits={credits} />
-        <MovieSimilar similar={similar} handleOpenClose={handleOpenClose} />
+        <CarouselSimilar similar={similar} handleOpenClose={handleOpenClose} />
       </div>
       {error && <h2>Ocurrio un error</h2>}
     </div>

@@ -1,11 +1,10 @@
-import "./MovieImg.css";
+import "./CarouselImage.css";
 
-const MovieImg = ({ path }) => {
+const CarouselImage = ({ path }) => {
   let urlBase = `https://image.tmdb.org/t/p/w500/`;
 
   if (!path) {
-    let noImg = "wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
-      url = urlBase + noImg;
+    let url = "./assets/images/no-photo.jpeg";
 
     return <img className="movie-img" src={url} alt="poster" />;
   } else {
@@ -15,4 +14,4 @@ const MovieImg = ({ path }) => {
   }
 };
 
-export default MovieImg;
+export default CarouselImage;

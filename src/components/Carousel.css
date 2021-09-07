@@ -1,45 +1,40 @@
 .carousel {
-  text-align: left;
-  width: 100%;
-}
-
-.carousel-header {
   display: flex;
-}
-
-.carousel-container {
+  justify-content: center;
   margin: 0 auto;
-  width: 90%;
+  width: 95%;
   position: relative;
 }
 
-.carousel-container button {
-  background-color: rgba(0, 0, 0, 0.4);
+.carousel button {
+  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: bold;
-  height: calc(100% - 2rem);
+  height: calc(100% - 2.2rem);
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-53%);
   transition: background-color 0.3s ease-out, width 0.3s ease-in-out;
   position: absolute;
   width: 1.25rem;
   z-index: 10;
 }
 
-.carousel-container button:hover {
+.carousel button:hover {
   background-color: rgba(0, 0, 0, 0.9);
   width: 2.5rem;
 }
 
-.carousel-container .carousel-left-btn {
+.carousel .carousel-left-btn {
   left: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
-.carousel-container .carousel-right-btn {
+.carousel .carousel-right-btn {
   right: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
 .carousel-movies {
@@ -62,7 +57,7 @@
   font-size: 1rem;
   background-color: rgba(0, 0, 0, 0.75);
   width: 100%;
-  height: 102%;
+  height: 100%;
   top: 100%;
   transition: all 0.2s ease-in;
   pointer-events: none;
@@ -70,7 +65,7 @@
 }
 
 .movie-container:hover > h3 {
-  top: -1%;
+  top: -0%;
 }
 
 @media screen and (max-width: 600px) {
@@ -87,6 +82,7 @@
 
 .movie-container:hover {
   transform: scale(1.2);
+  z-index: 10;
 }
 
 .movie-container img {

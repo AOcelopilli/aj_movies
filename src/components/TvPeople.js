@@ -1,4 +1,4 @@
-import MovieImg from "./MovieImg";
+import CarouselImage from "./CarouselImage";
 
 const TvPeople = ({ credits }) => {
   return (
@@ -10,7 +10,7 @@ const TvPeople = ({ credits }) => {
             <div className="person" data-id={person.id} key={person.id}>
               <h3>{person.character}</h3>
               <p>Nombre real: {person.name}</p>
-              <MovieImg path={person.profile_path} />
+              <CarouselImage path={person.profile_path} />
             </div>
           );
         })}
@@ -21,7 +21,7 @@ const TvPeople = ({ credits }) => {
             <div className="person" data-id={person.id} key={person.id}>
               <h3>{person.job}</h3>
               <p>Nombre: {person.original_name}</p>
-              <MovieImg path={person.profile_path} />
+              <CarouselImage path={person.profile_path} />
             </div>
           );
         })}

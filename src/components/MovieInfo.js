@@ -1,11 +1,11 @@
-import MovieImg from "./MovieImg";
+import CarouselImage from "./CarouselImage";
 
 const MovieInfo = ({ details }) => {
   return (
     <>
       <div className="movie-details-container">
         <div className="poster">
-          <MovieImg path={details.poster_path} />
+          <CarouselImage path={details.poster_path} />
           <p>Titulo original: {details.original_title}</p>
           <p className="date">
             Fecha de lanzamiento:{" "}

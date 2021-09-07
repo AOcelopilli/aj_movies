@@ -1,8 +1,11 @@
+import CarouselMovies from "../components/CarouselMovies";
+
 const Peliculas = () => {
   return (
-    <div>
-      <h2>Peliculas</h2>
-    </div>
+    <main>
+      <h1>Peliculas</h1>
+      <CarouselMovies category="popular" title="Populares" />
+    </main>
   );
 };
 

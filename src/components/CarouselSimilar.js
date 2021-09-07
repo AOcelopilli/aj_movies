@@ -1,6 +1,6 @@
-import MovieImg from "./MovieImg";
+import CarouselImage from "./CarouselImage";
 
-const MovieSimilar = ({ similar, handleOpenClose }) => {
+const CarouselSimilar = ({ similar, handleOpenClose }) => {
   return (
     <div className="similar-movies">
       <h3>Peliculas similares</h3>
@@ -16,7 +16,7 @@ const MovieSimilar = ({ similar, handleOpenClose }) => {
               <h4>
                 {movie.title || movie.original_title || movie.original_name}
               </h4>
-              <MovieImg path={movie.poster_path} />
+              <CarouselImage path={movie.poster_path} />
             </div>
           );
         })}
@@ -25,4 +25,4 @@ const MovieSimilar = ({ similar, handleOpenClose }) => {
   );
 };
 
-export default MovieSimilar;
+export default CarouselSimilar;

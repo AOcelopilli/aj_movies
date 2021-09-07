@@ -1,10 +1,10 @@
-import MovieImg from "./MovieImg";
+import CarouselImage from "./CarouselImage";
 
 const TvInfo = ({ details }) => {
   return (
     <div>
       <div>
-        <MovieImg path={details.poster_path} />
+        <CarouselImage path={details.poster_path} />
         <p>Nombre original: {details.original_name}</p>
         <p>Fecha de estreno: {details.first_air_date}</p>
         <p>Fecha de ultimo episodio: {details.last_air_date}</p>
