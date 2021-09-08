@@ -18,16 +18,18 @@ const Carousel = ({ data, handleOpenClose }) => {
         {" "}
         &lt;{" "}
       </button>
-      <div className="carousel-movies" ref={refCarousel}>
+      <div className="carousel-item-container" ref={refCarousel}>
         {data.map((e) => {
           return (
             <div
-              className="movie-container"
+              className="carousel-item"
               key={e.id}
               onClick={handleOpenClose}
               data-id={e.id}
             >
-              <h3>{e.title}</h3>
+              <div className="carousel-item-title">
+                <h3>{e.title || e.name}</h3>
+              </div>
               <CarouselImage path={e.backdrop_path} />
             </div>
           );

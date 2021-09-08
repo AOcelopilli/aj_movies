@@ -1,15 +1,24 @@
 import CarouselImage from "./CarouselImage";
+import "./MovieInfo.css";
 
 const MovieInfo = ({ details }) => {
   return (
     <>
-      <div className="movie-details-container">
+      <section className="movie-details-container">
         <div className="poster">
           <CarouselImage path={details.poster_path} />
-          <p>Titulo original: {details.original_title}</p>
-          <p className="date">
-            Fecha de lanzamiento:{" "}
-            {details.release_date.split("-").reverse().join(" ")}
+          <p>
+            <strong>{details.original_title}</strong> <br />{" "}
+            <span>Titulo original</span>
+          </p>
+
+          <p>
+            <strong>
+              {" "}
+              {details.release_date.split("-").reverse().join(" ")}
+            </strong>{" "}
+            <br />
+            <span>Fecha de lanzamiento</span>
           </p>
         </div>
 
@@ -17,7 +26,7 @@ const MovieInfo = ({ details }) => {
           <h3>Resumen</h3>
           <p>{details.overview || "No hay descripción"}</p>
         </div>
-      </div>
+      </section>
     </>
   );
 };

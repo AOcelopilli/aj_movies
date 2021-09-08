@@ -1,0 +1,32 @@
+.similar-movie {
+  min-height: 300px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  transition: box-shadow 0.4s ease-in, background-color 0.3s ease-in;
+  padding: 0 0.5rem;
+}
+
+.similar-movie:hover {
+  box-shadow: 0 0 3px white;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.similar-movie h4,
+.similar-movie img {
+  pointer-events: none;
+}
+
+.similar-movie img {
+  width: 150px;
+  height: 200px;
+}
+
+.small-container {
+  overflow-y: auto;
+  max-height: 300px;
+  border-top: thin solid gray;
+  border-bottom: thin solid gray;
+  padding: 1rem 0;
+}

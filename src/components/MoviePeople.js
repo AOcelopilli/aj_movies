@@ -1,23 +1,9 @@
 import CarouselImage from "./CarouselImage";
+import "./MoviePeople.css";
 
 const MoviePeople = ({ credits }) => {
   return (
     <div className="people">
-      <div className="castin">
-        <h3>Castin</h3>
-        <div className="grid-1-auto small-container">
-          {credits.cast.map((actor) => {
-            return (
-              <div key={actor.id} className="person">
-                <h4>Personaje: {actor.character}</h4>
-                <CarouselImage path={actor.profile_path} />
-                <p>Nombre: {actor.original_name}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
       <div className="production">
         <h3>Producción</h3>
         <div className="grid-1-auto small-container">

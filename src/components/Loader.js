@@ -1,7 +1,9 @@
+import "./Loader.css";
+
 const Loader = () => {
   return (
     <div>
-      <h3>Cargando...</h3>
+      <h3 className="loader">Cargando...</h3>
     </div>
   );
 };

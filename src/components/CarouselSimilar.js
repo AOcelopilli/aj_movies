@@ -1,4 +1,5 @@
 import CarouselImage from "./CarouselImage";
+import "./CarouselSimilar.css";
 
 const CarouselSimilar = ({ similar, handleOpenClose }) => {
   return (

@@ -24,28 +24,23 @@ body {
     rgb(0, 0, 0)
   );
   color: white;
-  padding-bottom: 2rem;
+  padding: 2rem 1rem;
 }
 
 main {
   min-height: 100vh;
-}
-
-h1,
-h2,
-h3 {
-  padding: 1rem;
+  margin-top: calc(2rem + 1vw);
 }
 
 h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: calc(2rem + 1vw);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: calc(1.75rem +0.75vw);
 }
 
-p {
-  padding: 1rem 0;
+h3 {
+  font-size: calc(2rem + 0.5vw);
 }

@@ -15,11 +15,11 @@
   font-weight: bold;
   height: calc(100% - 2.2rem);
   top: 50%;
-  transform: translateY(-53%);
+  transform: translateY(-51.5%);
   transition: background-color 0.3s ease-out, width 0.3s ease-in-out;
   position: absolute;
   width: 1.25rem;
-  z-index: 10;
+  z-index: 30;
 }
 
 .carousel button:hover {
@@ -37,55 +37,85 @@
   border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.carousel-movies {
+.carousel-item-container {
   overflow: hidden;
   scroll-behavior: smooth;
   display: flex;
   padding: 1rem 0;
 }
 
-.movie-container {
+.carousel-item {
   min-width: 20%;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   position: relative;
+  transition: transform 0.2s ease-in-out, border-radius 0.3s ease-out;
   overflow: hidden;
 }
 
-.movie-container h3 {
-  position: absolute;
-  font-size: 1rem;
+.carousel-item::before {
   background-color: rgba(0, 0, 0, 0.75);
-  width: 100%;
+  content: "";
   height: 100%;
-  top: 100%;
-  transition: all 0.2s ease-in;
-  pointer-events: none;
   left: 0;
+  top: 100%;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  z-index: 15;
 }
 
-.movie-container:hover > h3 {
-  top: -0%;
-}
-
-@media screen and (max-width: 600px) {
-  .movie-container {
-    min-width: 33.33%;
-  }
-
-  .movie-container h3 {
-    font-size: 0.6rem;
-    text-align: left;
-    padding: 0.25rem 0.5rem;
-  }
-}
-
-.movie-container:hover {
-  transform: scale(1.2);
+.carousel-item:hover {
+  transform: scale(1.15);
+  border-radius: 0.5rem;
   z-index: 10;
 }
 
-.movie-container img {
+.carousel-item:hover::before {
+  top: 0%;
+}
+
+.carousel-item:hover .carousel-item-title {
+  opacity: 1;
+}
+
+.carousel-item-title {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  opacity: 0;
+  width: 80%;
+  overflow: hidden;
+  pointer-events: none;
+  left: 10%;
+  transition: opacity 0.3s ease-out 0.3s;
+  z-index: 20;
+}
+
+.carousel-item img {
   width: 100%;
   pointer-events: none;
+}
+
+.carousel-item h3 {
+  font-size: calc(1.2rem + 0.5vw);
+  pointer-events: none;
+  text-align: center;
+}
+
+.carousel-item:hover > h3 {
+  top: 0%;
+}
+
+@media screen and (min-width: 200px) and (max-width: 500px) {
+  .carousel-item {
+    min-width: 33.3%;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .carousel-item {
+    min-width: 25%;
+  }
 }
