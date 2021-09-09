@@ -5,7 +5,6 @@ const MoviePeople = ({ credits }) => {
   return (
     <div className="people">
       <div className="production">
-        <h3>Producción</h3>
         <div className="grid-1-auto small-container">
           {credits.crew.map((prod) => {
             return (

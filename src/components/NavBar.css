@@ -7,10 +7,16 @@ header {
 }
 
 header h2 {
-  color: var(--main-color);
+  color: var(--primary);
   font-size: calc(1.75rem + 1vw);
   text-align: center;
-  text-shadow: 0 5px 20px rgb(0, 0, 0);
+  text-shadow: 0 5px 20px var(--black-dark-color);
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+header h2:hover {
+  color: var(--primary-modal);
 }
 
 nav {
@@ -20,8 +26,8 @@ nav {
   justify-content: space-evenly;
 }
 
-nav a {
-  color: white;
+header a {
+  color: var(--primary-dark);
   padding: 0.25rem;
   text-decoration: none;
   font-size: calc(1rem + 0.25vw);
@@ -29,23 +35,26 @@ nav a {
   transition: color 0.3s ease-in-out, border 0.3s ease-in;
   position: relative;
 }
-nav a:hover {
-  color: var(--main-modal-color);
+header a.active-link {
+  color: var(--primary);
+}
+header a:hover {
+  color: var(--primary-modal);
 }
 
-nav a::before {
+header nav a::before {
   content: "";
   width: 0%;
   height: 2px;
   position: absolute;
-  background-color: var(--main-color);
+  background-color: var(--primary);
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
   transition: width 0.3s ease-out;
 }
 
-nav a:hover::before {
+header a:hover::before {
   width: 100%;
 }
 
@@ -70,7 +79,7 @@ nav a:hover::before {
 input:focus {
   border-radius: 0.5rem;
   background-color: white;
-  box-shadow: 0 5px 20px rgb(0, 0, 0);
+  box-shadow: 0 0 10px black, 0 0 15px white, 0 0 20px black;
 }
 
 @media screen and (min-width: 600px) {

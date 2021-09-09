@@ -3,7 +3,6 @@ import CarouselImage from "./CarouselImage";
 const MovieCast = ({ cast }) => {
   return (
     <div className="cast">
-      <h3>Cast</h3>
       <div className="grid-1-auto small-container">
         {cast.map((actor) => {
           return (

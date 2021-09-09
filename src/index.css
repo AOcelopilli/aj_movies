@@ -1,6 +1,15 @@
 :root {
-  --main-color: rgb(233, 19, 19);
-  --main-modal-color: rgb(235, 32, 32);
+  --primary: #fcb80d;
+  --primary-modal: #fdce59;
+  --primary-dark-modal: #c9930a;
+  --primary-dark: #7d5b06;
+  --secondary: #4682b4;
+  --secondary-modal: #85a6c1;
+  --secondary-dark-modal: #38688f;
+  --secondary-dark: #152736;
+  --black-color: #454545;
+  --black-dark-color: #1f1f1f;
+  --black-modal-color: #bfbfbf;
 }
 
 *,
@@ -12,16 +21,16 @@
 }
 
 html {
+  background-color: var(--black-dark-color);
   font-family: sans-serif;
   font-size: 16px;
 }
 
 body {
   background: linear-gradient(
-    150deg,
-    rgb(83, 83, 83),
-    rgb(36, 36, 36),
-    rgb(0, 0, 0)
+    110deg,
+    var(--black-color),
+    var(--black-dark-color)
   );
   color: white;
   padding: 2rem 1rem;
@@ -33,14 +42,13 @@ main {
 }
 
 h1 {
-  text-align: center;
-  font-size: calc(2rem + 1vw);
+  font-size: calc(2rem + 1.5vw);
 }
 
 h2 {
-  font-size: calc(1.75rem +0.75vw);
+  font-size: calc(1.5rem + 1vw);
 }
 
 h3 {
-  font-size: calc(2rem + 0.5vw);
+  font-size: calc(1rem + 0.5vw);
 }

@@ -1,48 +1,40 @@
 .details {
   border-radius: 1rem;
-  top: 2%;
   left: 1%;
   overflow: hidden;
   position: absolute;
+  top: 2%;
   width: 98%;
-  z-index: 20;
+  z-index: 30;
+}
+
+.details::before {
+  background-color: var(--black-dark-color);
+  border-radius: 1rem;
+  content: "";
+  filter: blur(20px);
+  height: 100%;
+  opacity: 0.98;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
 }
 
 .movie-details {
   width: 100%;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
   padding: 2rem 1rem;
 }
 
-.movie-details::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.95);
-  filter: blur(30px);
-  position: absolute;
-  border-radius: 1rem;
-  z-index: -1;
-}
-
-@media screen and (max-width: 600px) {
-  .movie-details {
-    width: 100%;
-    left: 0;
-    padding: 0 0.25rem;
-    text-align: center;
-  }
-
-  .movie-details h3 {
-    width: 80%;
-  }
+.movie-details h2 {
+  color: var(--primary);
+  font-size: calc(2rem + 2vw);
+  text-align: center;
+  padding: 2rem 0;
 }
 
 .movie-details .close-details-btn {
   padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: whtie;
   border: none;
   border-radius: 0.5rem;
   color: black;
@@ -57,11 +49,55 @@
 }
 
 .movie-details .close-details-btn:hover {
-  background-color: rgba(212, 16, 16, 0.95);
+  background-color: var(--secondary-modal);
+}
+
+.movie-details .close-details-btn:active {
+  transform: scale(0.98);
+}
+
+.movie-details .details-nav {
+  border-bottom: thick solid white;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.movie-details .details-nav button {
+  background-color: transparent;
+  border: thick solid var(--secondary-modal);
+  border-bottom: none;
+  border-radius: 1rem 1rem 0 0;
+  /* box-shadow: 0 0 1px 3px var(--secondary-modal); */
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+  margin-right: -3px;
+  transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+.movie-details .details-nav button:hover {
+  background-color: var(--secondary-modal);
+}
+
+.movie-details .details-nav button.active {
+  background-color: var(--secondary);
+  padding-top: 1.5rem;
+  color: var(--black-dark-color);
 }
 
 .grid-1-auto {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .movie-details {
+    width: 100%;
+    left: 0;
+    padding: 0 0.25rem;
+  }
 }

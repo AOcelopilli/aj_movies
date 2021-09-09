@@ -1,5 +1,6 @@
 import CarouselMovies from "../components/CarouselMovies";
 import CarouselTv from "../components/CarouselTv";
+import "./Page.css";
 
 const Inicio = () => {
   return (
@@ -8,23 +9,15 @@ const Inicio = () => {
       <CarouselMovies
         category="day"
         trending={true}
-        title="Peliculas del día"
+        title="Películas del día"
       />
       <CarouselMovies
         category="week"
         trending={true}
-        title="Peliculas de la semana"
+        title="Películas de la semana"
       />
-      <CarouselTv
-        category="day"
-        trending={true}
-        title="Programas de Tv del día"
-      />
-      <CarouselTv
-        category="week"
-        trending={true}
-        title="Programas de Tv de la semana"
-      />
+      <CarouselTv category="day" trending={true} title="Series del día" />
+      <CarouselTv category="week" trending={true} title="Series de la semana" />
     </main>
   );
 };

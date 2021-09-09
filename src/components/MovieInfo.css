@@ -1,34 +1,35 @@
 .movie-details-container {
   display: grid;
-  place-items: center;
+  justify-items: center;
+  align-items: start;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
-}
-
-.poster {
-  text-align: center;
-}
-
-.poster img {
-  border-radius: 0.5rem;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.9),
-    0 0 10px rgba(255, 255, 255, 0.9);
-  height: 50vh;
-  width: auto;
 }
 
 .poster {
   font-size: calc(1.2rem + 0.5vw);
 }
 
-.poster strong {
+.poster img {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.9);
+  height: 60vh;
+  width: auto;
+}
+
+.overview h3 {
   border-bottom: thin solid white;
+  color: var(--primary-dark-modal);
+  text-align: center;
+  font-size: calc(1.5rem + 1vw);
 }
 
-.poster span {
-  font-size: 0.8rem;
+.overview > div {
+  padding-bottom: 1rem;
 }
 
-.overview {
-  line-height: 1.5rem;
+.overview p {
+  padding: 0.5rem 0;
+  text-align: center;
 }

@@ -4,7 +4,6 @@ import "./CarouselSimilar.css";
 const CarouselSimilar = ({ similar, handleOpenClose }) => {
   return (
     <div className="similar-movies">
-      <h3>Peliculas similares</h3>
       <div className="grid-1-auto">
         {similar.results.map((movie) => {
           return (

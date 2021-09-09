@@ -15,16 +15,18 @@ const NavBar = () => {
     <>
       <Router>
         <header>
-          <h2>Series y Peliculas</h2>
+          <NavLink exact to="/">
+            <h2>¡Blockbusters!</h2>
+          </NavLink>
           <nav>
-            <NavLink exact to="/" activeClassName="activeLink">
+            <NavLink exact to="/" activeClassName="active-link">
               Inicio
             </NavLink>
-            <NavLink exact to="/peliculas" activeClassName="activeLink">
-              Peliculas
+            <NavLink exact to="/peliculas" activeClassName="active-link">
+              Películas
             </NavLink>
-            <NavLink exact to="/tv" activeClassName="activeLink">
-              Programas de TV
+            <NavLink exact to="/tv" activeClassName="active-link">
+              Series
             </NavLink>
           </nav>
           <div className="search">
