@@ -28,7 +28,7 @@ html {
 
 body {
   background: linear-gradient(
-    110deg,
+    160deg,
     var(--black-color),
     var(--black-dark-color)
   );

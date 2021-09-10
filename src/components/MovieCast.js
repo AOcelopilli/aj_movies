@@ -1,15 +1,22 @@
 import CarouselImage from "./CarouselImage";
+import "./MovieCast.css";
 
 const MovieCast = ({ cast }) => {
   return (
     <div className="cast">
-      <div className="grid-1-auto small-container">
+      <div className="grid-1-auto">
         {cast.map((actor) => {
           return (
             <div key={actor.id} className="person">
-              <h4>Personaje: {actor.character}</h4>
               <CarouselImage path={actor.profile_path} />
-              <p>Nombre: {actor.original_name}</p>
+              <div className="text">
+                <p>
+                  <i class="fas fa-theater-masks"></i> {actor.character}
+                </p>
+                <p>
+                  <i className="far fa-user icon"></i> {actor.original_name}
+                </p>
+              </div>
             </div>
           );
         })}

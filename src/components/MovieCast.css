@@ -1,3 +1,48 @@
-.cast {
+.person {
+  border: 3px solid var(--secondary-dark);
+  border-radius: 1rem 1rem 0 0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.person:hover {
+  background-color: var(--secondary-dark-modal);
+}
+
+.grid-1-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: calc(1rem + 0.5vw);
+  padding: 2rem 0;
+}
+
+.person img {
+  height: auto;
+  min-height: 250px;
   width: 100%;
+  text-align: center;
+}
+
+.person .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.person p {
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+.svg-inline--fa {
+  color: var(--primary);
+  font-size: calc(1rem + 0.5vw);
+}
+
+@media screen and (max-width: 600px) {
+  .person p {
+    font-size: calc(0.7rem + 0.5vw);
+  }
 }

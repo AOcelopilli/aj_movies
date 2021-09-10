@@ -1,21 +1,25 @@
 import CarouselImage from "./CarouselImage";
-import "./MoviePeople.css";
+import "./MovieCast.css";
 
 const MoviePeople = ({ credits }) => {
   return (
-    <div className="people">
-      <div className="production">
-        <div className="grid-1-auto small-container">
-          {credits.crew.map((prod) => {
-            return (
-              <div key={prod.credit_id} className="person">
-                <h4>Puesto: {prod.job}</h4>
-                <CarouselImage path={prod.profile_path} />
-                <p>Nombre: {prod.original_name}</p>
+    <div className="crew">
+      <div className="grid-1-auto ">
+        {credits.crew.map((prod) => {
+          return (
+            <div key={prod.credit_id} className="person">
+              <CarouselImage path={prod.profile_path} />{" "}
+              <div className="text">
+                <p>
+                  <i class="fas fa-film"></i> {prod.job}
+                </p>
+                <p>
+                  <i className="far fa-user icon"></i> {prod.original_name}
+                </p>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

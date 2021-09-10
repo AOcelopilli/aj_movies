@@ -64,14 +64,13 @@
 
 .movie-details .details-nav button {
   background-color: transparent;
-  border: thick solid var(--secondary-modal);
+  border: thick solid var(--secondary);
   border-bottom: none;
   border-radius: 1rem 1rem 0 0;
-  /* box-shadow: 0 0 1px 3px var(--secondary-modal); */
   color: white;
   cursor: pointer;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: calc(1rem + 1vw);
   outline: none;
   padding: 0.5rem 1rem;
   margin-right: -3px;
@@ -84,14 +83,8 @@
 
 .movie-details .details-nav button.active {
   background-color: var(--secondary);
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
   color: var(--black-dark-color);
-}
-
-.grid-1-auto {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.5rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -99,5 +92,9 @@
     width: 100%;
     left: 0;
     padding: 0 0.25rem;
+  }
+
+  .movie-details .details-nav button {
+    font-size: calc(0.75rem + 1vw);
   }
 }

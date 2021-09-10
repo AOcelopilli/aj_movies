@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  text-align: center;
   transition: box-shadow 0.4s ease-in, background-color 0.3s ease-in;
   padding: 0 0.5rem;
 }
@@ -19,8 +20,8 @@
 }
 
 .similar-movie img {
-  width: 150px;
-  height: 200px;
+  width: 100%;
+  height: auto;
 }
 
 .small-container {
