@@ -16,6 +16,7 @@ const Inicio = () => {
         trending={true}
         title="Películas de la semana"
       />
+
       <CarouselTv category="day" trending={true} title="Series del día" />
       <CarouselTv category="week" trending={true} title="Series de la semana" />
     </main>

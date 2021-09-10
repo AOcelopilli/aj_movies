@@ -11,7 +11,7 @@ const MoviePeople = ({ credits }) => {
               <CarouselImage path={prod.profile_path} />{" "}
               <div className="text">
                 <p>
-                  <i class="fas fa-film"></i> {prod.job}
+                  <i className="fas fa-film"></i> {prod.job}
                 </p>
                 <p>
                   <i className="far fa-user icon"></i> {prod.original_name}
