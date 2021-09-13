@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  NavLink,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { HashRouter, NavLink, Route, Switch } from "react-router-dom";
 import Inicio from "../pages/Inicio";
 import Peliculas from "../pages/Peliculas";
 import Tv from "../pages/Tv";
@@ -13,7 +8,7 @@ import "./NavBar.css";
 const NavBar = () => {
   return (
     <>
-      <Router>
+      <HashRouter>
         <header>
           <NavLink exact to="/">
             <h2>¡Blockbusters!</h2>
@@ -37,9 +32,10 @@ const NavBar = () => {
           <Route exact path="/" component={Inicio} />
           <Route exact path="/peliculas" component={Peliculas} />
           <Route exact path="/tv" component={Tv} />
+          <Route path="/aj_movies" component={Inicio} />
           <Route path="*" component={Error404} />
         </Switch>
-      </Router>
+      </HashRouter>
     </>
   );
 };
