@@ -1,0 +1,26 @@
+// colors
+$main: #2f76bd;
+$main-dark: #073665;
+$main-grey: #59acff;
+$secondary: #c9af28;
+$secondary-modal: #bd882f;
+$white: #fefffe;
+$dark: #000f22;
+
+// boilerplate
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background-color: $white;
+}

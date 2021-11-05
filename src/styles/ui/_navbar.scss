@@ -1,0 +1,47 @@
+.header {
+  background-color: $main-dark;
+  padding: 1rem 0;
+  width: 100%;
+
+  #{&}__menu {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+  }
+
+  #{&}__logo {
+    font-size: 2rem;
+    color: $main;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $main-grey;
+    }
+  }
+
+  #{&}__menu-btn {
+    background-color: transparent;
+    border: thin solid $main;
+    border-radius: 50%;
+    color: $main;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 2.5rem;
+    transition: color 0.3s ease, background-color 0.4s ease-in-out;
+
+    &:hover {
+      background-color: rgba($color: $main, $alpha: 0.75);
+      color: $main-dark;
+    }
+  }
+
+  #{&}__link {
+    color: $main;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $main-grey;
+    }
+  }
+}
