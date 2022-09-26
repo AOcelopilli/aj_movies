@@ -2,6 +2,8 @@
 
 Esta es una aplicación sobre peliculas y series de televisión que consulta la información desde el API _The MovieDB_ y puede mostrar información básica sobre este tipo de entretenimiento. Esta creada con la libreria React.js utilizando Hooks (useState, useEffect, useRef) y CSS básico.
 
+[Visitar](https://angelpineda-dev.github.io/aj_movies/#/)
+
 ## Caracteristicas
 
 - Muesta películas y series de televisión.
